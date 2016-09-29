@@ -22,4 +22,37 @@ public class FilmDAO {
         return em.createQuery("SELECT f FROM Film f ORDER BY f.id DESC").getResultList();
     }
     
+    public void ajouterFilm(Film f){
+        
+        EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
+        em.getTransaction().begin();
+        em.persist(f);
+        em.getTransaction().commit();
+    }
+    
+    public void supprimerFilm(long id){
+        
+        
+        EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
+        em.getTransaction().begin();
+        em.createQuery("DELETE FROM Film f WHERE f.id=" + id).executeUpdate();
+        em.getTransaction().commit();
+    }
+  
+    public Film rechercheParId(long id){
+        
+        EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
+       
+        return em.find(Film.class, id);
+        
+    }
+    
+    public void modifierFilm (Film f){
+        
+        EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
+        em.getTransaction().begin();
+        em.merge(f);                     //merge = mise à jour...
+        em.getTransaction().commit();
+    }
+    
 }
