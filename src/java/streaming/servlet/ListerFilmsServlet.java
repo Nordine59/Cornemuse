@@ -27,10 +27,6 @@ public class ListerFilmsServlet extends HttpServlet {
        
         
         List<Film> films = new FilmService().lister();
-        
-                
-         
-                
         req.setAttribute("titre", "TEST LISTE FILMS");
         req.setAttribute("mesFilms", films);
        //req.setAttribute("mesSeries", series);

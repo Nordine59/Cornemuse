@@ -24,4 +24,37 @@ public class SerieDAO {
         return em.createQuery("SELECT s FROM Serie s ORDER BY s.id DESC").getResultList();
     
 }
+    public void ajouterSerie(Serie s ){
+        
+        EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
+        em.getTransaction().begin();
+        em.persist(s);
+        em.getTransaction().commit();
+    }
+    
+    public void supprimerSerie(long id){
+        
+        
+        EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
+        em.getTransaction().begin();
+        em.createQuery("DELETE FROM Serie s WHERE s.id=" + id).executeUpdate();
+        em.getTransaction().commit();
+    }
+  
+    public Serie rechercheParId(long id){
+        
+        EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
+       
+        return em.find(Serie.class, id);
+        
+    }
+    
+    public void modifierSerie (Serie s){
+        
+        EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
+        em.getTransaction().begin();
+        em.merge(s);                     //merge = mise à jour...
+        em.getTransaction().commit();
+    }
+    
 }

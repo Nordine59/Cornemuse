@@ -31,7 +31,14 @@
         </div>
         
         <div class="contenu">
-            CONTENU
+            <form method="POST"
+            <label>Titre </label>
+                
+            <input name="titre" type="text"/>
+            <br>
+            <label>Synopsis</label>
+            <textarea name="synopsis"> </textarea>
+            <input type="submit" value="Ajouter"/>
             
         </div>
         

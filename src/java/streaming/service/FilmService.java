@@ -38,5 +38,10 @@ public class FilmService {
         new FilmDAO().ajouterFilm(f);
 
     }
-
+public void supprimerFilm(long id){
+    
+    new FilmDAO().supprimerFilm(id);
+}
+    
+    
 }

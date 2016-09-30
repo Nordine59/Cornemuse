@@ -32,6 +32,8 @@ public class ListerSerieServlet extends HttpServlet {
        req.setAttribute("mesSeries", series);
        req.setAttribute("Nordine", "NORDINE Copyright 2016");
        req.getRequestDispatcher("lister_serie.jsp").forward(req, resp);
+       
+    
 }   
     
 }
