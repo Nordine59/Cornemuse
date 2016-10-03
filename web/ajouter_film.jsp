@@ -36,6 +36,13 @@
                 
             <input name="titre" type="text"/>
             <br>
+            <label>Genre</label>
+            <select name="GenreId">
+                <c:forEach items="${listeGenre}" var="genreAct">
+                    <option value="${genreAct.id}">${genreAct.nom } </option> 
+                </c:forEach>
+                    
+                    </select>        
             <label>Synopsis</label>
             <textarea name="synopsis"> </textarea>
             <br>  
