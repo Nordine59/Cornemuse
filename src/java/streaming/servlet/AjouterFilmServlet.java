@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import streaming.entity.Film;
 import streaming.service.FilmService;
+import streaming.service.GenreService;
 
 /**
  *
@@ -25,6 +26,9 @@ public class AjouterFilmServlet extends HttpServlet {
     
      @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        
+        
+        req.setAttribute("listeGenre", new GenreService().lister());
         
         req.getRequestDispatcher("ajouter_film.jsp").forward(req, resp);
         
@@ -44,6 +48,8 @@ public class AjouterFilmServlet extends HttpServlet {
        f.setSynopsis(req.getParameter("synopsis"));
        f.setAnnee(Integer.valueOf(req.getParameter("annee")));//convertit la string de l ecran en INTEGER
        f.setDuree(Integer.valueOf(req.getParameter("duree")));// convertit le string de l ecran en INTEGER
+       f.setGenre(new GenreService().rechercheParId(Long.valueOf(req.getParameter("GenreId"))));
+       
        
        
        new FilmService().ajouterFilm(f);
@@ -51,8 +57,7 @@ public class AjouterFilmServlet extends HttpServlet {
        resp.sendRedirect("lister_films");//fait une requete get sur la route indiquée
        
        
-         //req.getRequestDispatcher("lister_films").forward(req, resp);
-            //car deja redirect au dessus
+         
        
     }
 
