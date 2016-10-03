@@ -18,7 +18,7 @@
         
         
         <div class="menu">
-           
+            MENU
             <c:import url="_MENU.jsp"/>
                      
         </div>
@@ -26,23 +26,32 @@
         
         
         <div class="titre">
-           
+     
             
         </div>
         
+      
         <div class="contenu">
-           
-            <c:forEach items="${mesFilms}" var="monFilm">  
+            <form method="POST"
+            <label>Titre </label>
                 
+                <input name="titre" type="text" value="${film.titre}"/>
+            <br>
+            <label>Synopsis</label>
+            <textarea name="synopsis"> ${film.synopsis}</textarea>
+            <br>  
+            <label>Année de prod.</label>
+            <input name="annee" type="text" value="${film.annee}"/>
+            <br>
+            <label>Durée</label>
+            <input name="duree" type="text" value="${film.duree}"/>
+            <input  type="hidden" value="${monFilm.id}" name="id"/>
+            <input type="submit" value="Modifier"/>
             
-                ${monFilm.titre} <a href="supprimer_film?id=${monFilm.id}">Supprimer</a>   
-                <a href="modifier_film?id=${monFilm.id}">Modifier</a> 
-                <br>
-            </c:forEach>
         </div>
         
         <div class="pied">
-          
+            PIED
             <c:import url="_PIED.jsp"/>
             
         </div>
