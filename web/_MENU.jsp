@@ -10,3 +10,5 @@
         <a href="lister_serie">Liste des séries</a>
         <a href="ajouter_films">Ajouter des films</a>
         <a href="ajouter_series">Ajouter des séries</a>
+         <a href="modifier_film">Modifier Film</a>
+        <a href="modifier_serie">Modifier serie</a>

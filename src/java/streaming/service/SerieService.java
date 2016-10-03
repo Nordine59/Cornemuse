@@ -37,4 +37,10 @@ public class SerieService {
         new SerieDAO().ajouterSerie(s);
 
     }
+    
+    public void supprimerSerie(long id){
+    
+    new SerieDAO().supprimerSerie(id);
+    
+}
 }

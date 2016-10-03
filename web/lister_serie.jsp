@@ -33,7 +33,7 @@
         <div class="contenu">
             
             <c:forEach items="${mesSeries}" var="maSerie">  
-                ${maSerie.titre}
+               ${maSerie.titre} <a href="supprimer_serie?id=${maSerie.id}">Supprimer</a>  
                 <br>
             </c:forEach>
         </div>
@@ -43,6 +43,8 @@
             <c:import url="_PIED.jsp"/>
             
         </div>
+        
+        
         
         
     </body>
