@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import streaming.entity.Film;
 import streaming.service.FilmService;
+import streaming.service.GenreService;
 
 /**
  *
@@ -32,7 +33,8 @@ public class ModifierFilmServlet extends HttpServlet {
         req.setAttribute("film", film);
         //forward vers la jsp
         req.getRequestDispatcher("modifier_film.jsp").forward(req, resp);
-
+         //lister les genre en auto ds la liste
+         req.setAttribute("listeGenre", new GenreService().lister());
     }
 
     @Override

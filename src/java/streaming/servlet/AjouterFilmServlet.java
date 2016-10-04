@@ -48,9 +48,17 @@ public class AjouterFilmServlet extends HttpServlet {
        f.setSynopsis(req.getParameter("synopsis"));
        f.setAnnee(Integer.valueOf(req.getParameter("annee")));//convertit la string de l ecran en INTEGER
        f.setDuree(Integer.valueOf(req.getParameter("duree")));// convertit le string de l ecran en INTEGER
+       
+       //METHODE DE BEAU GOSSE voie après le CACA
        f.setGenre(new GenreService().rechercheParId(Long.valueOf(req.getParameter("GenreId"))));
        
        
+       //METHODE MOYEN
+       
+       //METHODE CACA
+       //f.setGenre(new genre());
+       //f.getGenre().setId(long.valueOf(req.getParameter("genreId"));
+       //f.getGenre().getFilms().add(f);
        
        new FilmService().ajouterFilm(f);
        //forward vers servlet listage films et renvoie l ecran ou on liste ici

@@ -40,9 +40,10 @@
                 <br>
             </c:forEach>
         </div>
-        
+           
         <div class="pied">
-          
+            <
+
             <c:import url="_PIED.jsp"/>
             
         </div>

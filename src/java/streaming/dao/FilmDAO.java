@@ -9,6 +9,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 import streaming.entity.Film;
+import streaming.entity.Genre;
 
 /**
  *
@@ -55,4 +56,8 @@ public class FilmDAO {
         em.getTransaction().commit();
     }
     
-}
+   
+        
+    }
+    
+
