@@ -17,7 +17,7 @@ import streaming.entity.Genre;
  */
 public class GenreDao {
 
-    public List<Genre> listerGenre() {
+    public List<Genre> lister() {
 
         EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
 
@@ -32,5 +32,39 @@ public class GenreDao {
         return em.find(Genre.class, id);
 
     }
+    
+    public void supprimer(long id){
+        
+        EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
+        em.getTransaction().begin();
+        em.createQuery("DELETE g FROM Genre g WHERE g.id" + id).executeUpdate();
+        em.getTransaction().commit();
+        
+    }
+    
+    
+    public void  ajouter (Genre g){
+        
+        
+        EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
+        em.getTransaction().begin();
+        em.persist(g);
+        em.getTransaction().commit();
+        
+    }
 
+    public void modifier (Genre g){
+        
+        EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
+        em.getTransaction().begin();
+        em.merge(g);
+        em.getTransaction().commit();
+                
+        
+        
+        
+    }
+    
+    
+    
 }

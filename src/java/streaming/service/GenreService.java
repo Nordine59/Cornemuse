@@ -18,7 +18,7 @@ public class GenreService {
 
     public List<Genre> lister() {
 
-        return new GenreDao().listerGenre();
+        return new GenreDao().lister();
 
     }
 
@@ -27,4 +27,22 @@ public class GenreService {
         return new GenreDao().rechercheParId(id);
 
     }
+    
+    public void supprimerGenre (long id){
+        
+        new GenreDao().supprimer(id);
+        
+    }
+    
+    public void ajouterGenre (Genre g){
+        
+         new GenreDao().ajouter(g);
+    }
+    
+    public void modifierGenre (Genre g){
+        
+        new GenreDao().modifier(g);
+    }
+    
+    
 }

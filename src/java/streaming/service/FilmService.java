@@ -6,8 +6,6 @@
 package streaming.service;
 
 import java.util.List;
-import javax.persistence.EntityManager;
-import javax.persistence.Persistence;
 import streaming.dao.FilmDAO;
 import streaming.entity.Film;
 
@@ -18,7 +16,7 @@ import streaming.entity.Film;
 public class FilmService {
 
     public List<Film> lister() {
-        return new FilmDAO().listerFilms();
+        return new FilmDAO().lister();
     }
 
     public Film rechercheParId(long id) {
@@ -29,19 +27,33 @@ public class FilmService {
 
     public void  modifierFilm(Film f) {
 
-         new FilmDAO().modifierFilm(f);
+         new FilmDAO().modifier(f);
 
     }
 
     public void ajouterFilm(Film f) {
 
-        new FilmDAO().ajouterFilm(f);
+        new FilmDAO().ajouter(f);
 
     }
 public void supprimerFilm(long id){
     
-    new FilmDAO().supprimerFilm(id);
+    new FilmDAO().supprimer(id);
 }
     
+    public void ajouter (List<Film>films){
+        
+        FilmDAO dao = new FilmDAO();
+        
+        for(Film f : films){
+         
+        if (f.getTitre().length()>0){    
+        dao.ajouter(f);
+            
+        }
+    }
+
+
     
+}
 }

@@ -17,13 +17,13 @@ import streaming.entity.Genre;
  */
 public class FilmDAO {
     
-    public List<Film> listerFilms() {
+    public List<Film> lister() {
         EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
         
         return em.createQuery("SELECT f FROM Film f ORDER BY f.id DESC").getResultList();
     }
     
-    public void ajouterFilm(Film f){
+    public void ajouter(Film f){
         
         EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
         em.getTransaction().begin();
@@ -31,7 +31,7 @@ public class FilmDAO {
         em.getTransaction().commit();
     }
     
-    public void supprimerFilm(long id){
+    public void supprimer(long id){
         
         
         EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
@@ -48,7 +48,7 @@ public class FilmDAO {
         
     }
     
-    public void modifierFilm (Film f){
+    public void modifier (Film f){
         
         EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
         em.getTransaction().begin();
